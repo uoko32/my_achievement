@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Achievements</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Local CSS -->
+  <link href="static/css/styles.css" rel="stylesheet">
+  <style>
+    .container-fluid, .container {
+      max-width: 1200px;
+      margin: 0 auto; 
+
+    .bg-dark {
+      color: white;
+    }
+    .bg-light {
+      padding: 3rem 1rem;
+    }
+
+
+    footer {
+      max-width: 1200px; 
+      margin: 0 auto;
+    }
+
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8); 
+      z-index: 1050; 
+      justify-content: center;
+      align-items: center;
+    }
+    .overlay img {
+      max-width: 80%; 
+      max-height: 80%; 
+      object-fit: contain; 
+      border: 5px solid white; 
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+
+
+    .card-img-top {
+      cursor: pointer; 
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Me</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div style="background-color: #f0f8ff; color: #333;" class="text-center p-5">
+    <h1>Welcome to My World of Stories</h1>
+    <p>I am Cheng Holly, currently studying creative and interactive media production. I have taken arts and English literature before. </p>
+    <p>Discover the journey of a playwright who turned shadows into light and scripts into life.</p>
+  </div>
+  
+<div style="background-image:url(static/img/background.jpeg);background-size: cover; 
+background-repeat: no-repeat; 
+background-position: center;">
+  <div class="bg-light text-dark text-center p-5">
+    <h2 class="text-uppercase font-weight-bold">Achievements</h2>
+    <p class="lead">Crafted a groundbreaking monodrama, a script with diverse settings and characters, designed for a single performer to captivate audiences with unparalleled depth and emotion.</p>
+    <p class="text-danger font-weight-bold">One person. Infinite worlds. Limitless possibilities.</p>
+  </div>
+
+  <!-- Main Content -->
+<div class="container my-5">
+  <!-- 背景图片 -->
+    <div class="row">
+      <div class="col-md-6">
+        <img src="static/img/writing.jpg" class="img-fluid" alt="Writing Image">
+      </div>
+      <div class="col-md-6">
+        <h2>My Creative Vision</h2>
+        <p>From the shadows of childhood to the spotlight of the stage, my scripts reflect the resilience of the human spirit. Explore my journey and my works.</p>
+      </div>
+    </div>
+
+    <!-- Manuscript Section -->
+    <div class="my-5">
+      <h2 class="text-center">Manuscript</h2>
+      <p class="text-center">Here are some snapshots of my scripts and manuscripts that brought my stories to life.</p>
+      
+      <div class="row">
+        <!-- Script 1 -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="static/img/script1.jpg" class="card-img-top" alt="Script 1" onclick="showOverlay(this)">
+            <div class="card-body text-center">
+              <p class="card-text">Scene 1</p>
+            </div>
+          </div>
+        </div>
+        <!-- Script 2 -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="static/img/script2.jpg" class="card-img-top" alt="Script 2" onclick="showOverlay(this)">
+            <div class="card-body text-center">
+              <p class="card-text">Scene 2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Script 3 -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="static/img/script3.jpg" class="card-img-top" alt="Script 3" onclick="showOverlay(this)">
+            <div class="card-body text-center">
+              <p class="card-text">Scene 3</p>
+            </div>
+          </div>
+        </div>
+        <!-- Script 4 -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img src="static/img/script4.jpg" class="card-img-top" alt="Script 4" onclick="showOverlay(this)">
+            <div class="card-body text-center">
+              <p class="card-text">Scene 4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay for Enlarged Image -->
+  <div class="overlay" id="overlay" onclick="hideOverlay()">
+    <img src="" alt="Enlarged Image">
+  </div>
+
+</div>
+<!-- Achievements Section -->
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>© 2025 My Achievements. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Local JavaScript -->
+  <script>
+    function showOverlay(image) {
+      const overlay = document.getElementById('overlay');
+      const overlayImage = overlay.querySelector('img');
+      overlayImage.src = image.src;
+      overlay.style.display = 'flex';
+    }
+
+    function hideOverlay() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
